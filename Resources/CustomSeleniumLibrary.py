@@ -7,7 +7,7 @@ from datetime import datetime
 from robot.api import logger
 from Selenium2Library import Selenium2Library
 
-import variables as V
+import variables.locators as V
 
 
 class CustomSeleniumLibrary(Selenium2Library):
