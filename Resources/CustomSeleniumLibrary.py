@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+import os
 import re
+import sys
 from datetime import datetime
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 
 # TODO remove logger
 from robot.api import logger
@@ -9,7 +13,6 @@ from XvfbRobot import XvfbRobot
 
 import config
 import variables.locators as V
-
 
 class CustomSeleniumLibrary(Selenium2Library):
     """ COMMON METHODS """
