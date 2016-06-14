@@ -1,9 +1,10 @@
 *** Settings ***
 Documentation  Suite description
 Library  ../Resources/CustomSeleniumLibrary.py
+Library  XvfbRobot
 
-Test Setup  Begin FE Test
-Test Teardown  End FE Test
+Test Setup  Begin Test
+Test Teardown  End Test
 
 *** Test Cases ***
 Light Search on Kiwi.com

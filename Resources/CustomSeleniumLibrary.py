@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
 import re
-import sys
 from datetime import datetime
 
 # TODO remove logger
 from robot.api import logger
 from Selenium2Library import Selenium2Library
+from XvfbRobot import XvfbRobot
 
+import config
 import variables.locators as V
 
 
 class CustomSeleniumLibrary(Selenium2Library):
     """ COMMON METHODS """
-    def begin_fe_test(self):
-        self.open_browser('about:blank', browser='chrome')
+    def begin_test(self):
+        if config.xvfb['enabled']:
+            XvfbRobot().start_virtual_display(config.xvfb['width'], config.xvfb['height'])
+        self.open_browser('about:blank', browser=config.default_browser)
         #self.maximize_browser_window()
 
-    def end_fe_test(self):
+    def end_test(self):
         self.close_browser()
 
     def show_element(self, element, button):
